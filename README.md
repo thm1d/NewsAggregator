@@ -1,0 +1,3 @@
+# NewsAggregator
+
+A Django Project
