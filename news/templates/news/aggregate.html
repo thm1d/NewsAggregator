@@ -3,10 +3,9 @@
 <head>
     <title></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top mb-5">
         <div class="container">
             <a class="navbar-brand" href="#">News Aggregator</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,11 +14,11 @@
   
             <div class="collapse navbar-collapse" id="navbarsExample07">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/aggregate">Aggregator</a>
+                        <a class="nav-link active" href="/aggregate">Aggregator<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">News Sources</a>
@@ -48,25 +47,35 @@
             </div>
         </div>
     </nav>
-    {% load static %}
-    <div class="home ">
-        <img class="bg"
-            style="
-            width: 100%; 
-            height: 100vh;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;" src="{% static 'news/bg_4.jpg' %}">
-        <div class="centered" 
-             style="position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    color: gold;"><h1>A NEWS AGGREGATOR WEBSITE</h1>
-            <center><a href="/aggregate" class="btn btn-danger">Get Started</a></center>
+    <div class="container mt-5 pt-5">
+        <div class="row">
+            <div class="col-4">
+                <h3 class="text-centre"> News from The Bangldesh Today </h3>
+                {% for n in tbt_news %}
+                <h5> -  {{n}} </h5>
+                <hr>
+                {% endfor %}
+                <br>
+            </div>
+            <div class="col-4">
+                <h3 class="text-centre">News from The Daily Star</h3><br>
+                {% for ds in ds_news %}
+                <h5> - {{ds}} </h5>
+                <hr>
+                {% endfor %}
+                <br>
+            </div>
+            <div class="col-4">
+                <h3 class="text-centre">News from The New Age</h3><br>
+                {% for na in na_news %}
+                <h5> - {{na}} </h5>
+                <hr>
+                {% endfor %}
+                <br>
+            </div>
+        
         </div>
-
-         
+        <center><a href="/" class="btn btn-danger">Refresh News</a></center>
     </div>
     <script
         src="http://code.jquery.com/jquery-3.3.1.min.js"
