@@ -1,6 +1,10 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 import requests
 from bs4 import BeautifulSoup
+from .forms import SelectForm
+
+
 
 # GEtting news from The Bangladesh Today
 
@@ -31,18 +35,28 @@ for ds in ds_headings:
 
 #Getting news The New Age
 
-na_r = requests.get("https://www.newagebd.net/articlelist/302/Bangladesh")
-na_soup = BeautifulSoup(na_r.content, 'html.parser')
-na_headings = na_soup.find_all('h3')
-na_headings = na_headings[1:-1]
-na_news = []
+tna_r = requests.get("https://www.newagebd.net/articlelist/302/Bangladesh")
+tna_soup = BeautifulSoup(tna_r.content, 'html.parser')
+tna_headings = tna_soup.find_all('h3')
+tna_headings = tna_headings[1:-1]
+tna_news = []
 
-for na in na_headings:
-    na_news.append(na.text)
+for tna in tna_headings:
+    tna_news.append(tna.text)
 
 
 def aggregate(req):
-    return render(req, 'news/aggregate.html', {'tbt_news':tbt_news, 'ds_news': ds_news, 'na_news': na_news})
+    source_one = ''
+    source_two = ''
+    if req.method == 'POST':
+        form = SelectForm(req.POST)
+        if form.is_valid():
+
+            source_one = form.cleaned_data['select_source_one']
+            source_two = form.cleaned_data['select_source_two']
+
+    form = SelectForm()
+    return render(req, 'news/aggregate.html', {'source_one': source_one, 'source_two': source_two, 'tbt_news':tbt_news, 'tds_news': ds_news, 'tna_news': tna_news, 'form': form})
 
 def index(req):
     return render(req, 'news/index.html')

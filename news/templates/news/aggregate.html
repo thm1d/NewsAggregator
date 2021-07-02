@@ -48,34 +48,78 @@
         </div>
     </nav>
     <div class="container mt-5 pt-5">
+        <div class="source-select my-5 d-flex justify-content-center">
+            <form action="/aggregate" method="POST">
+                {% csrf_token %}
+                {{ form }} 
+                <center class="mt-3"><button type="submit" class="btn btn-danger">Aggregate</button></center>
+            </form>
+        </div>
         <div class="row">
-            <div class="col-4">
-                <h3 class="text-centre"> News from The Bangldesh Today </h3>
-                {% for n in tbt_news %}
-                <h5> -  {{n}} </h5>
-                <hr>
-                {% endfor %}
-                <br>
-            </div>
-            <div class="col-4">
-                <h3 class="text-centre">News from The Daily Star</h3><br>
-                {% for ds in ds_news %}
-                <h5> - {{ds}} </h5>
-                <hr>
-                {% endfor %}
-                <br>
-            </div>
-            <div class="col-4">
-                <h3 class="text-centre">News from The New Age</h3><br>
-                {% for na in na_news %}
-                <h5> - {{na}} </h5>
-                <hr>
-                {% endfor %}
-                <br>
-            </div>
+            {% if source_one %}
+                {% if source_one == 'tbt_news' %}
+                <div class="col-6">
+                    <h3 class="text-centre"> News from The Bangldesh Today </h3>
+                    {% for n in tbt_news %}
+                    <h5> -  {{n}} </h5>
+                    <hr>
+                    {% endfor %}
+                    <br>
+                </div>
+                {% elif source_one == 'tna_news' %}
+                <div class="col-6">
+                    <h3 class="text-centre">News from The New Age</h3><br>
+                    {% for na in tna_news %}
+                    <h5> - {{na}} </h5>
+                    <hr>
+                    {% endfor %}
+                    <br>
+                </div>
+                {% elif source_one == 'tds_news' %}
+                <div class="col-6">
+                    <h3 class="text-centre">News from The Daily Star</h3><br>
+                    {% for ds in tds_news %}
+                    <h5> - {{ds}} </h5>
+                    <hr>
+                    {% endfor %}
+                    <br>
+                </div>
+                {% endif %}
+            {% endif %}
+
+            {% if source_two %}
+                {% if source_two == 'tbt_news' %}
+                <div class="col-6">
+                    <h3 class="text-centre"> News from The Bangldesh Today </h3>
+                    {% for n in tbt_news %}
+                    <h5> -  {{n}} </h5>
+                    <hr>
+                    {% endfor %}
+                    <br>
+                </div>
+                {% elif source_two == 'tna_news' %}
+                <div class="col-6">
+                    <h3 class="text-centre">News from The New Age</h3><br>
+                    {% for na in tna_news %}
+                    <h5> - {{na}} </h5>
+                    <hr>
+                    {% endfor %}
+                    <br>
+                </div>
+                {% elif source_two == 'tds_news' %}
+                <div class="col-6">
+                    <h3 class="text-centre">News from The Daily Star</h3><br>
+                    {% for ds in tds_news %}
+                    <h5> - {{ds}} </h5>
+                    <hr>
+                    {% endfor %}
+                    <br>
+                </div>
+                {% endif %}
+            {% endif %}
         
         </div>
-        <center><a href="/" class="btn btn-danger">Refresh News</a></center>
+        <!-- <center><a href="/" class="btn btn-danger">Refresh News</a></center> -->
     </div>
     <script
         src="http://code.jquery.com/jquery-3.3.1.min.js"
