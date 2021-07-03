@@ -84,6 +84,15 @@
                     {% endfor %}
                     <br>
                 </div>
+                {% elif source_one == 'bd_news' %}
+                <div class="col-6">
+                    <h3 class="text-centre">News from BDNews24</h3><br>
+                    {% for bd in bd_news %}
+                    <h5> - {{bd}} </h5>
+                    <hr>
+                    {% endfor %}
+                    <br>
+                </div>
                 {% endif %}
             {% endif %}
 
@@ -111,6 +120,15 @@
                     <h3 class="text-centre">News from The Daily Star</h3><br>
                     {% for ds in tds_news %}
                     <h5> - {{ds}} </h5>
+                    <hr>
+                    {% endfor %}
+                    <br>
+                </div>
+                {% elif source_two == 'bd_news' %}
+                <div class="col-6">
+                    <h3 class="text-centre">News from BDNews24</h3><br>
+                    {% for bd in bd_news %}
+                    <h5> - {{bd}} </h5>
                     <hr>
                     {% endfor %}
                     <br>

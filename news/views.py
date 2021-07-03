@@ -45,6 +45,15 @@ for tna in tna_headings:
     tna_news.append(tna.text)
 
 
+bd_r = requests.get("https://bdnews24.com/bangladesh/")
+bd_soup = BeautifulSoup(bd_r.content, 'html.parser')
+bd_headings = bd_soup.find_all('h6')
+bd_news = []
+
+for bd in bd_headings:
+    bd_news.append(bd.text)
+
+
 def aggregate(req):
     source_one = ''
     source_two = ''
@@ -56,7 +65,7 @@ def aggregate(req):
             source_two = form.cleaned_data['select_source_two']
 
     form = SelectForm()
-    return render(req, 'news/aggregate.html', {'source_one': source_one, 'source_two': source_two, 'tbt_news':tbt_news, 'tds_news': ds_news, 'tna_news': tna_news, 'form': form})
+    return render(req, 'news/aggregate.html', {'source_one': source_one, 'source_two': source_two, 'bd_news': bd_news, 'tbt_news':tbt_news, 'tds_news': ds_news, 'tna_news': tna_news, 'form': form})
 
 def index(req):
     return render(req, 'news/index.html')
