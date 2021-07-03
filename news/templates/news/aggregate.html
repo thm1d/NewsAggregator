@@ -59,7 +59,7 @@
             {% if source_one %}
                 {% if source_one == 'tbt_news' %}
                 <div class="col-6">
-                    <h3 class="text-centre"> News from The Bangldesh Today </h3>
+                    <h3 class="text-center"> News from The Bangldesh Today </h3>
                     {% for n in tbt_news %}
                     <h5> -  {{n}} </h5>
                     <hr>
@@ -68,7 +68,7 @@
                 </div>
                 {% elif source_one == 'tna_news' %}
                 <div class="col-6">
-                    <h3 class="text-centre">News from The New Age</h3><br>
+                    <h3 class="text-center">News from The New Age</h3><br>
                     {% for na in tna_news %}
                     <h5> - {{na}} </h5>
                     <hr>
@@ -77,7 +77,7 @@
                 </div>
                 {% elif source_one == 'tds_news' %}
                 <div class="col-6">
-                    <h3 class="text-centre">News from The Daily Star</h3><br>
+                    <h3 class="text-center">News from The Daily Star</h3><br>
                     {% for ds in tds_news %}
                     <h5> - {{ds}} </h5>
                     <hr>
@@ -86,9 +86,27 @@
                 </div>
                 {% elif source_one == 'bd_news' %}
                 <div class="col-6">
-                    <h3 class="text-centre">News from BDNews24</h3><br>
+                    <h3 class="text-center">News from BDNews24</h3><br>
                     {% for bd in bd_news %}
                     <h5> - {{bd}} </h5>
+                    <hr>
+                    {% endfor %}
+                    <br>
+                </div>
+                {% elif source_one == 'dt_news' %}
+                <div class="col-6">
+                    <h3 class="text-center">News from Dhaka Tribune</h3><br>
+                    {% for dt in dt_news %}
+                    <h5> - {{dt}} </h5>
+                    <hr>
+                    {% endfor %}
+                    <br>
+                </div>
+                {% elif source_one == 'tdo_news' %}
+                <div class="col-6">
+                    <h3 class="text-center">News from The Daily Observer</h3><br>
+                    {% for tdo in tdo_news %}
+                    <h5> - {{tdo}} </h5>
                     <hr>
                     {% endfor %}
                     <br>
@@ -99,7 +117,7 @@
             {% if source_two %}
                 {% if source_two == 'tbt_news' %}
                 <div class="col-6">
-                    <h3 class="text-centre"> News from The Bangldesh Today </h3>
+                    <h3 class="text-center"> News from The Bangldesh Today </h3>
                     {% for n in tbt_news %}
                     <h5> -  {{n}} </h5>
                     <hr>
@@ -108,7 +126,7 @@
                 </div>
                 {% elif source_two == 'tna_news' %}
                 <div class="col-6">
-                    <h3 class="text-centre">News from The New Age</h3><br>
+                    <h3 class="text-center">News from The New Age</h3><br>
                     {% for na in tna_news %}
                     <h5> - {{na}} </h5>
                     <hr>
@@ -117,7 +135,7 @@
                 </div>
                 {% elif source_two == 'tds_news' %}
                 <div class="col-6">
-                    <h3 class="text-centre">News from The Daily Star</h3><br>
+                    <h3 class="text-center">News from The Daily Star</h3><br>
                     {% for ds in tds_news %}
                     <h5> - {{ds}} </h5>
                     <hr>
@@ -126,9 +144,27 @@
                 </div>
                 {% elif source_two == 'bd_news' %}
                 <div class="col-6">
-                    <h3 class="text-centre">News from BDNews24</h3><br>
+                    <h3 class="text-center">News from BDNews24</h3><br>
                     {% for bd in bd_news %}
                     <h5> - {{bd}} </h5>
+                    <hr>
+                    {% endfor %}
+                    <br>
+                </div>
+                {% elif source_two == 'dt_news' %}
+                <div class="col-6">
+                    <h3 class="text-center">News from Dhaka Tribune</h3><br>
+                    {% for dt in dt_news %}
+                    <h5> - {{dt}} </h5>
+                    <hr>
+                    {% endfor %}
+                    <br>
+                </div>
+                {% elif source_two == 'tdo_news' %}
+                <div class="col-6">
+                    <h3 class="text-center">News from The Daily Observer</h3><br>
+                    {% for tdo in tdo_news %}
+                    <h5> - {{tdo}} </h5>
                     <hr>
                     {% endfor %}
                     <br>
