@@ -15,14 +15,14 @@
   
             <div class="collapse navbar-collapse" id="navbarsExample07">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/aggregate">Aggregator</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/news-sources">News Sources</a>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/news-sources">News Sources <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Bangladesh</a>
@@ -49,13 +49,58 @@
         </div>
     </nav>
     {% load static %}
-    <div class="home ">
-        <img class="bg" src="{% static 'news/bg_4.jpg' %}">
-        <div class="centered"><p>A NEWS AGGREGATOR WEBSITE</p>
-            <center><a href="/aggregate" class="btn btn-danger">Get Started</a></center>
-        </div>
+    <div class="news-sources container mt-5 pt-5">
+        <div class="source-lists row my-5 d-flex justify-content-center">
+            <div class="card mx-2 my-2" style="width: 18rem;">
+                <div class="card-body">
+                    <a href="https://thebangladeshtoday.com/" target="_blank">
+                        <img src="{% static 'img/TBT-Logo.png' %}" class="card-img-top" alt="" style="height: 4rem;">
+                        <center><h5>The Bangladesh Today</h5></center>
+                    </a>
+                </div>
+            </div>
+            <div class="card mx-2 my-2" style="width: 18rem;">
+                <div class="card-body">
+                    <a href="https://www.thedailystar.net/" target="_blank">
+                        <img src="{% static 'img/tds.png' %}" class="card-img-top" alt="">
+                        <center><h5>The Daily Star</h5></center>
+                    </a>
+                </div>
+            </div>
+            <div class="card mx-2 my-2" style="width: 18rem;">
+                <div class="card-body">
+                    <a href="https://www.newagebd.net/" target="_blank">
+                        <img src="{% static 'img/tna.png' %}" class="card-img-top" alt=""  style="height: 4rem;">
+                        <center><h5>The New Age</h5></center>
+                    </a>
+                </div>
+            </div>
+            <div class="card mx-2 my-2" style="width: 18rem;">
+                <div class="card-body">
+                    <a href="https://www.observerbd.com/" target="_blank">
+                        <img src="{% static 'img/tdo.jpg' %}" class="card-img-top" alt="" style="height: 4rem;">
+                        <center><h5>The Daily Observer</h5></center>
+                    </a>
+                </div>
+            </div>
+            <div class="card mx-2 my-2" style="width: 18rem;">
+                <div class="card-body">
+                    <a href="https://www.dhakatribune.com/" target="_blank">
+                        <img src="{% static 'img/dt.png' %}" class="card-img-top" alt="" style="height: 4rem;">
+                        <center><h5>Dhaka Tribune</h5></center>
+                    </a>
+                </div>
+            </div>
+            <div class="card mx-2 my-2" style="width: 18rem;">
+                <div class="card-body">
+                    <a href="https://bdnews24.com/" target="_blank">
+                        <img src="{% static 'img/bdn.png' %}" class="card-img-top" alt="" style="height: 4rem;">
+                        <center><h5>BDNews24</h5></center>
+                    </a>
+                </div>
+            </div>
 
-         
+        </div>
     </div>
     <script
         src="http://code.jquery.com/jquery-3.3.1.min.js"
